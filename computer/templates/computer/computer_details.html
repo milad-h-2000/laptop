@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'computer\\my_style.css' %}"/>
+</head>
+<body>
+    <div class="image">
+          <img src="{{ computer.image.url }}" alt="a cool laptop"/>
+    </div>
+    <div>
+      <h1 class="title">{{ computer.title }}</h1>
+      <p class="description">{{ computer.description }}</p>
+      {% if computer.price %}
+      <h4>price: {{ computer.price }}</h4>
+      {% endif %}
+      <hr/>
+    </div>
+    <br/>
+    <div>
+      <a class="link" href="{% url 'computer:computers' %}">Back</a>
+    </div>
+      <br/><br/><br/><br/><br/>
+    <div>
+      <a class="link" href="#">Donate</a>
+    </div>
+</body>
+</html>
+

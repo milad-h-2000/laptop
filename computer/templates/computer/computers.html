@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computers</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'computer/my_style.css' %}"/>
+</head>
+<body>
+
+{% for computer in computers %}
+    <div>
+        <img class="image" src="{{ computer.image.url }}" alt="a cool laptop"/>
+        <h2 class="title">{{ computer.title }}</h2>
+        <h5 class="title">{{ computer.date|date:'M d Y' }}</h5>
+        <p class="description">{{ computer.description|truncatechars:100 }}</p>
+        <a class="link" href="{% url 'computer:computer_details' computer.id %}">read more</a>
+        <hr/>
+    </div>
+
+{% endfor %}
+
+<div>
+    <a class='link' href="{% url 'home' %}">Home</a>
+</div>
+<br/><br/><br/>
+
+</body>
+</html>
